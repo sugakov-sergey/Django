@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cerulean/bootstrap.min.css"
+            integrity="sha384-3fdgwJw17Bi87e1QQ4fsLn4rUFqWw//KU0g8TvV6quvahISRewev6/EocKNuJmEw"
+            crossorigin="anonymous">
+      <title>{{ post.title }}</title>
+      <style>
+          .div_main {
+          margin-left:70px;
+          width:60%
+          }
+      </style>
+  </head>
+  <body>
+
+    <div align="left">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="../">Блог</a></li>
+          <li class="breadcrumb-item active">пост-{{post.pk}}</li>
+        </ol>
+        <div class="div_main">
+            <h2 class="display-3">{{ post.title }}</h2>
+            <br>
+            <p class="lead" >{{ post.body }}</p>
+            <hr class="my-4">
+            <p class="text-secondary">Технологии</p>
+            <p class="text-primary">{{ post.categories.name }}</p>
+            <p class="text-secondary">Дата создания</p>
+            <p class="text-primary">{{ post.created_on.date }}</p>
+            <p class="text-secondary">Последнее изменение</p>
+            <p class="text-primary">{{ post.last_modified }}</p>
+            <hr class="my-4">
+            <h3>Комментарии</h3>
+            <br>
+            {% for comment in comments %}
+                <figure>
+                  <blockquote class="blockquote">
+                    <p class="mb-0">{{ comment.body }}</p>
+                  </blockquote>
+                  <figcaption class="blockquote-footer">
+                    {{ comment.created_on.date }}, <cite title="Source Title"> {{ comment.author }}</cite>
+                  </figcaption>
+                </figure>
+            <br>
+            {% endfor %}
+            <br>
+
+            <a href="/blog" >
+                <button type="button" class="btn btn-outline-primary ">Вернуться назад</button>
+            </a>
+        </div>
+
+    </div>
+  </body>
+<br><br><br>
+</html>
