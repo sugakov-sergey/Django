@@ -23,14 +23,11 @@
         <div class="div_main">
             <h2 class="display-3">{{ post.title }}</h2>
             <br>
-            <p class="lead" >{{ post.body }}</p>
+            <p class="text-success">{{ post.last_modified.date }}</p>
+            <p class="lead" >{{ post.body | linebreaks }}</p>
             <hr class="my-4">
             <p class="text-secondary">Технологии</p>
             <p class="text-primary">{{ post.categories.name }}</p>
-            <p class="text-secondary">Дата создания</p>
-            <p class="text-primary">{{ post.created_on.date }}</p>
-            <p class="text-secondary">Последнее изменение</p>
-            <p class="text-primary">{{ post.last_modified }}</p>
             <hr class="my-4">
             <h3>Комментарии</h3>
             <br>

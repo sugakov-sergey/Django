@@ -31,6 +31,7 @@
                         <a href="{% url 'blog_detail_url' post.pk %}">
                             <h4 class="card-title"> {{ post.title }} </h4>
                         </a>
+                        <p class="card-text"> {{ post.body | slice:":200"}} ... </p>
                         <p class="text-success">Создан: {{ post.created_on.date }}  </p>
                         <p class="text-warning">Изменен: {{ post.last_modified }}</p>
 
