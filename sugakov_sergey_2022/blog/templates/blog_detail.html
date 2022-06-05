@@ -32,15 +32,17 @@
             <h3>Комментарии</h3>
             <br>
             {% for comment in comments %}
-                <figure>
-                  <blockquote class="blockquote">
-                    <p class="mb-0">{{ comment.body }}</p>
-                  </blockquote>
-                  <figcaption class="blockquote-footer">
-                    {{ comment.created_on.date }}, <cite title="Source Title"> {{ comment.author }}</cite>
-                  </figcaption>
-                </figure>
-            <br>
+                {% if comment.post_id == post.id %}
+                    <figure>
+                      <blockquote class="blockquote">
+                        <p class="mb-0">{{ comment.body }}</p>
+                      </blockquote>
+                      <figcaption class="blockquote-footer">
+                        {{ comment.created_on.date }}, <cite title="Source Title"> {{ comment.author }}</cite>
+                      </figcaption>
+                    </figure>
+                {% endif %}
+                <br>
             {% endfor %}
             <br>
 
