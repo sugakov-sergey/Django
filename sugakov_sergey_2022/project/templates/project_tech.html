@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <title>Мои проекты</title>
+      <title>Технологии проектов</title>
   </head>
   <body>
     <header>
@@ -11,17 +11,20 @@
     {% block page_content %}
     <div align="left" >
         <div class="div_main">
-            <h3 class="display-4">Мои проекты</h3>
+            <h3 class="display-4">{{tech.technology}}
+                <small class="text-muted">проекты</small>
+            </h3>
         </div>
         <div class="div_main">
             <div class="row">
                 {% for project in projects %}
+                {% if tech.technology == project.technology %}
                 <div class="col-md-4">
                     <div class="card mb-2">
                         <a href="{% url 'project_detail' project.pk %}">
                             <img class="card-img-top" src="{% static project.image %}">
                         </a>
-                            <div class="card-body">
+                        <div class="card-body">
                                 <h5 class="card-title">{{ project.title }}</h5>
                                 <p class="card-text">{{ project.description | slice:":70" }} ... </p>
                                 <p>
@@ -37,9 +40,12 @@
                             </div>
                     </div>
                 </div>
+                {% endif %}
                 {% endfor %}
+
             </div>
         </div>
+
     </div>
 {% endblock %}
     {% include 'footer.html' %}

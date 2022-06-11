@@ -11,3 +11,8 @@ def project_detail(request, pk):
     context = {'project': project}
     return render(request, 'project_detail.html', context)
 
+def project_tech(request, technology):
+    tech = Project.objects.get(technology=technology)
+    projects = Project.objects.all()
+    context = {'tech': tech, 'projects': projects}
+    return render(request, 'project_tech.html', context)
