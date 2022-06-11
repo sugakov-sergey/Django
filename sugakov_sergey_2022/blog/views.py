@@ -9,11 +9,11 @@ from .models import Post, Comment
 
 def blog_index(request):
     posts = Post.objects.all()
-    posts_context = {'posts': posts.order_by('-created_on')}  # сортировка "-" в обратном направлении
-    return render(request, 'blog_index.html', posts_context)
+    context = {'posts': posts.order_by('-created_on')}  # сортировка "-" в обратном направлении
+    return render(request, 'blog_index.html', context)
 
 def blog_detail(request, pk):
     post = Post.objects.get(pk=pk)
     comments = Comment.objects.all()
-    post_context = {'post': post, 'comments': comments}
-    return render(request, 'blog_detail.html', post_context)
+    context = {'post': post, 'comments': comments}
+    return render(request, 'blog_detail.html', context)

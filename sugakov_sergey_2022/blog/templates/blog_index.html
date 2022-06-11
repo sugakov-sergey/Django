@@ -4,39 +4,8 @@
       <title>Блог моего проекта</title>
   </head>
   <body>
-    <header>
-      {% include 'base.html' %}
-    </header>
-    <div align="left" >
-        <div class="div_main">
-            <h3 class="display-4">Блог</h3>
-        </div>
-    {% for post in posts %}
-        <div class="div_main">
-            <div class="card border-primary mb-3" style="max-width: 40rem;" align="left">
-                <div class="card-header">{{ post.categories.name }}
-
-                </div>
-                    <div class="card-body">
-                        <a href="{% url 'blog_detail_url' post.pk %}">
-                            <h4 class="card-title"> {{ post.title }} </h4>
-                        </a>
-                        <p class="card-text"> {{ post.body | slice:":200"}} ... </p>
-                        <p class="text-success">Создан: {{ post.created_on.date }}  </p>
-                        <p class="text-warning">Изменен: {{ post.last_modified }}</p>
-
-                        <div align="right">
-                            <a href="{% url 'blog_detail_url' post.pk %}">
-                                <button type="button" class="btn btn-outline-primary">Перейти</button>
-                            </a>
-                        </div>
-
-                    </div>
-            </div>
-        </div>
-    {% endfor %}
-
-    </div>
+    {% include 'base.html' %}
+    {% include 'base_blog.html' %}
     {% include 'footer.html' %}
   </body>
 </html>
