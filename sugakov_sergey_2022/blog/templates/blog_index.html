@@ -1,26 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <link rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cerulean/bootstrap.min.css"
-            integrity="sha384-3fdgwJw17Bi87e1QQ4fsLn4rUFqWw//KU0g8TvV6quvahISRewev6/EocKNuJmEw"
-            crossorigin="anonymous">
-
       <title>Блог моего проекта</title>
-
-      <style>
-          .div_main {
-          margin-left:70px;
-          width:60%
-          }
-      </style>
   </head>
   <body>
-
+    <header>
+      {% include 'base.html' %}
+    </header>
     <div align="left" >
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item active">Блог</li>
-        </ol>
+        <div class="div_main">
+            <h3 class="display-4">Блог</h3>
+        </div>
     {% for post in posts %}
         <div class="div_main">
             <div class="card border-primary mb-3" style="max-width: 40rem;" align="left">

@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <link rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cerulean/bootstrap.min.css"
-            integrity="sha384-3fdgwJw17Bi87e1QQ4fsLn4rUFqWw//KU0g8TvV6quvahISRewev6/EocKNuJmEw"
-            crossorigin="anonymous">
       <title>{{ post.title }}</title>
-      <style>
-          .div_main {
-          margin-left:70px;
-          width:60%
-          }
-      </style>
   </head>
   <body>
-
+    <header>
+      {% include 'base.html' %}
+    </header>
     <div align="left">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../">Блог</a></li>
-          <li class="breadcrumb-item active">пост-{{post.pk}}</li>
-        </ol>
+
         <div class="div_main">
-            <h2 class="display-3">{{ post.title }}</h2>
+            <h2 class="display-4">{{ post.title }}</h2>
             <br>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item" ><a href="/">Главная</a></li>
+              <li class="breadcrumb-item"><a href="/blog">Блог</a></li>
+              <li class="breadcrumb-item active">{{ post.title }}</li>
+            </ol>
             <p class="text-success">{{ post.last_modified.date }}</p>
             <p class="lead" >{{ post.body | linebreaks }}</p>
             <hr class="my-4">
